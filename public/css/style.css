@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap");
+:root {
+  --background-color: #edf1f7;
+  --text-color: #222b45;
+  --theme-switch-background-color: #d8d8d8;
+}
+
+[data-theme=dark] {
+  --background-color: #49667a;
+  --text-color: #ffffff;
+  --theme-switch-background-color: #39475d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  direction: rtl;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 15px !important;
+  background-color: #969696 !important;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+.page-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.scrollable-container {
+  overflow: scroll;
+}
+
+.navbar-info {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 15px 32px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.navbar__color-line {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  height: 2px;
+  width: 100%;
+  background-image: linear-gradient(90deg, #4bb887, #16b6d0, #d6e58a);
+}
+
+.navbar__hamburger-menu {
+  width: 40px;
+  height: 40px;
+  padding: 0 6px;
+}
+
+.navbar__logo > img {
+  height: 100%;
+  width: 100%;
+  max-width: 247px;
+  max-height: 47px;
+  margin: 0 30px;
+}
+
+.navbar__text {
+  line-height: 1;
+  margin: 0 20px 0 30px;
+  display: flex;
+  align-items: center;
+  flex: 1 0 200px;
+  color: #222b45;
+  font-weight: 700;
+}
+.navbar__text .navbar__title {
+  font-size: 1.01rem;
+  white-space: nowrap;
+  text-decoration: none;
+  text-align: center;
+  border-left: 1px solid;
+  padding-left: 20px;
+  margin-left: 20px;
+}
+.navbar__text .navbar__last-updated {
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+#theme-switch {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 53px;
+  height: 44px;
+  background-color: var(--theme-switch-background-color);
+  border-radius: 0 46% 46% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
