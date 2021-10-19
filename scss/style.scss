@@ -2,4 +2,14 @@
 @import './base/settings';
 @import './base/scrollbar';
 @import './base/containers';
-@import './base/navbar-info';
+@import './base/charts';
+// Navbar
+@import './base/navbar/navbar-info';
+@import './base/navbar/navbar-hamburgerMenu';
+@import './base/navbar/navbar-links';
+@import './base/cards';
+// Sections
+@import './base/sections/section-general';
+@import './base/sections/section-overview';
+@import './base/sections/section-dataWorld';
+@import './base/sections/section-analysis';

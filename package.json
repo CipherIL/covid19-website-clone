@@ -4,12 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sass":"sass ./scss:./public/css --watch --no-source-map"
+    "start": "node ./src/index.js",
+    "dev":"env-cmd -f ./config/dev.env nodemon -e js,mgs,html,hbs ./src/index.js",
+    "sass": "sass ./scss:./public/css --watch --no-source-map"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "sass": "^1.43.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.2",
+    "mongoose": "^6.0.11",
+    "nodemon": "^2.0.13"
   }
 }

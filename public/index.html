@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" type='text/css' href="/css/style.css">
     <title>קורונה - לוח בקרה</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
             <div class="navbar-info">
                 <div class="navbar__color-line"></div>
                 <div class="navbar__hamburger-menu">
-                    <div id="hamburger-menu__lines">
+                    <div id="hamburger-menu__lines" class="show">
                         <div class="hamburger-menu__line"></div>
                         <div class="hamburger-menu__line"></div>
                         <div class="hamburger-menu__line"></div>
@@ -28,16 +28,123 @@
                 </div>
                 <div class="navbar__text">
                     <div class="navbar__title">נגיף הקורונה בישראל - תמונת מצב כללית</div>
-                    <div class="navbar__last-updated">עדכון אחרון: 17 באוקטובר | 08:46</div>
+                    <div class="navbar__last-updated">עדכון אחרון: 17 באוקטובר 2021 | 08:46</div>
                 </div>
                 <div id="theme-switch">
                     <img class="theme-switch__img" src="/public/media/logos/brightness_light.png" alt="">
                 </div>
             </div>
-            <div class="navbar-links scrollable-container"></div>
+            <div class="navbar-links scrollable-container">
+                <div class="navbar-links__link-container">
+                    <a class="navbar-links__link" href="#overview">מבט על</a>
+                </div>
+                <div class="navbar-links__link-container chosen">
+                    <a class="navbar-links__link" href="#data-world">עולם הדאטה</a>
+                </div>
+                <div class="navbar-links__link-container">
+                    <a class="navbar-links__link" href="#analysis">תחקור תחלואה והתחסנות</a>
+                </div>
+                <div class="navbar-links__link-container">
+                    <a class="navbar-links__link" href="#vaccines">חיסונים</a>
+                </div>
+                <div class="navbar-links__link-container">
+                    <a class="navbar-links__link" href="#civilians-status">חולים קשה, מאומתים ובדיקות</a>
+                </div>
+                <div class="navbar-links__link-container">
+                    <a class="navbar-links__link" href="#sick-from-overseas">תחלואה מחו"ל</a>
+                </div>
+                <div class="navbar-links__link-container">
+                    <a class="navbar-links__link" href="#healed-and-losses">מחלימים ונפטרים</a>
+                </div>
+                <div class="navbar-links__link-container">
+                    <a class="navbar-links__link" href="#traffic-light">רמזור בישובים</a>
+                </div>
+                <div class="navbar-links__link-container">
+                    <a class="navbar-links__link" href="#health-facilities">מוסדות רפואיים</a>
+                </div>
+            </div>
         </div>
-
+        <div class="main-container">
+            <section id="overview" class="section">
+                <div class="anchor"></div>
+                <div class="section__title first-section">מבט על</div>
+                <div class="section__content">
+                    <div class="inline-flex-wrapper">
+                        <div class="card small">asd</div>
+                        <div class="card small">asd</div>
+                    </div>
+                    <div class="line-break"></div>
+                    <div class="inline-flex-wrapper">
+                        <div class="card small">asd</div>
+                        <div class="card small">asd</div>
+                    </div>
+                    <div class="line-break"></div>
+                    <div class="inline-flex-wrapper">
+                        <div class="card small">asd</div>
+                        <div class="card small">asd</div>
+                    </div>
+                </div>
+            </section>
+            <section id="data-world" class="section">
+                <div class="anchor"></div>
+                <div class="section__title">עולם הדאטה</div>
+                <div class="section__content">
+                    <div class="card small"></div>
+                </div>
+            </section>
+            <section id="analysis" class="section">
+                <div class="anchor"></div>
+                <div class="section__title">תחקור תחלואה והתחסנות</div>
+                <div class="section__content">
+                    <div class="card small"></div>
+                </div>
+            </section>
+            <section id="vaccines" class="section">
+                <div class="anchor"></div>
+                <div class="section__title">חיסונים</div>
+                <div class="section__content">
+                    <div class="card small"></div>
+                </div>
+            </section>
+            <section id="civilians-status" class="section">
+                <div class="anchor"></div>
+                <div class="section__title">חולים קשה, מאומתים ובדיקות</div>
+                <div class="section__content">
+                    <div class="card small"></div>
+                </div>
+            </section>
+            <section id="sick-from-overseas" class="section">
+                <div class="anchor"></div>
+                <div class="section__title">תחלואה מחו"ל</div>
+                <div class="section__content">
+                    <div class="card small"></div>
+                </div>
+            </section>
+            <section id="healed-and-losses" class="section">
+                <div class="anchor"></div>
+                <div class="section__title">מחלימים ונפטרים</div>
+                <div class="section__content">
+                    <div class="card small"></div>
+                </div>
+            </section>
+            <section id="traffic-light" class="section">
+                <div class="anchor"></div>
+                <div class="section__title">רמזור בישובים</div>
+                <div class="section__content">
+                    <div class="card small"></div>
+                </div>
+            </section>
+            <section id="health-facilities" class="section">
+                <div class="anchor"></div>
+                <div class="section__title">מוסדות רפואיים</div>
+                <div class="section__content">
+                    <div class="card small"></div>
+                </div>
+            </section>
+        </div>
     </div>
     <script src="/public/js/switchTheme.js"></script>
+    <script src="/public/js/hamburgerMenu.js"></script>
+    <script src="/public/js/navbarLinks.js"></script>
 </body>
 </html>

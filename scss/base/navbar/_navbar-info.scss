@@ -8,6 +8,7 @@
     padding: 15px 32px;
     flex-wrap: wrap;
     align-items: center;
+    background-color: #fff;
 }
 
 .navbar__color-line{
@@ -20,19 +21,13 @@
     background-image: linear-gradient(90deg,#4bb887,#16b6d0,#d6e58a);
 }
 
-.navbar__hamburger-menu{
-    width: 40px;
-    height: 40px;
-    padding: 0 6px;
-}
-
 //DOH logo
 .navbar__logo>img {
     height:100%;
     width: 100%;
     max-width: 247px;
     max-height: 47px;
-    margin: 0 30px;
+    margin: 0 22px 0 45px;
 }
 
 //container of title and lastupdated
@@ -44,6 +39,7 @@
     flex: 1 0 200px;
     color: #222b45;
     font-weight: 700;
+    
 
     //title
     .navbar__title{
@@ -60,6 +56,13 @@
     .navbar__last-updated{
         font-size: 0.75rem;
         text-align: center;
+    }
+    @media (max-width: 690px) {
+        flex-direction: column;
+        align-items: flex-start;
+        .navbar__title{
+            border: none;
+        }
     }
 }
 

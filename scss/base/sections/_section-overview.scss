@@ -1,0 +1,49 @@
+#overview .section__content{
+    @media (max-width:1400px) {
+        justify-content: flex-start;
+        .inline-flex-wrapper{
+            &.first,&.third{
+                width: 60vw;
+                min-width: 10vw;
+                flex-shrink: 1;
+                flex-grow: 0;
+                justify-content: flex-start;
+                .small{
+                    flex-grow: 1;
+                }
+            }
+            &.second{
+                width: 30vw;
+                min-width: 20vw;
+                flex-shrink: 1;
+                flex-grow: 0;
+                justify-content: flex-start;
+                .small{
+                    flex-grow: 1;
+                }
+            }  
+        }
+        //activate bottom linebreaker
+        .line-break{
+            &.second{
+                width:100%;
+            }
+        }
+    }
+    @media (max-width:1190px) {
+        //settings for all pairs of cards
+        .inline-flex-wrapper{
+            &.first,
+            &.second,
+            &.third{
+                justify-content: center;
+                flex-grow: 1;
+                margin-left: 0;
+            }
+        }
+        //settings for linebreakers
+        .line-break{
+            width:100%;
+        }    
+    }
+}

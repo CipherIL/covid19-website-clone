@@ -1,0 +1,27 @@
+.navbar-links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 9px 0;
+    margin: 0;
+    background-color: #374f60;
+    .navbar-links__link-container{
+        padding: 6px 30px;
+        margin: 0 30px;
+        border-radius: 20px;
+
+        .navbar-links__link{
+            font-size: 16px;
+            color: #f3f6f8;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+        &.chosen{
+            background-color: rgba(255,255,255,0.2);
+        }
+        &.chosen .navbar-links__link{
+            font-weight: 700;
+        }
+    }
+}
+

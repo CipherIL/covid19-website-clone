@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <title>קורונה - לוח בקרה</title>
+</head>
+<body>
+    <div class="page-container scrollable-container">
+        <div class="navbar-container">
+            {{>_navbar}}
+        </div>
+        <div class="main-container">
+            <section id="overview" class="section">
+                {{>_overviewSection}}
+            </section>
+            <section id="data-world" class="section">
+                {{>_dataWorldSection}}
+            </section>
+            <section id="analysis" class="section">
+                {{>_analysisSection}}
+            </section>
+            <section id="vaccines" class="section">
+                <div class="section__title">חיסונים</div>
+                <div class="section__content">
+                    
+                </div>
+            </section>
+            <section id="civilians-status" class="section">
+                <div class="section__title">חולים קשה, מאומתים ובדיקות</div>
+                <div class="section__content">
+                    
+                </div>
+            </section>
+            <section id="sick-from-overseas" class="section">
+                <div class="section__title">תחלואה מחו"ל</div>
+                <div class="section__content">
+                    
+                </div>
+            </section>
+            <section id="healed-and-losses" class="section">
+                <div class="section__title">מחלימים ונפטרים</div>
+                <div class="section__content">
+                    
+                </div>
+            </section>
+            <section id="traffic-light" class="section">
+                <div class="section__title">רמזור בישובים</div>
+                <div class="section__content">
+                    
+                </div>
+            </section>
+            <section id="health-facilities" class="section">
+                <div class="section__title">מוסדות רפואיים</div>
+                <div class="section__content">
+                    
+                </div>
+            </section>
+        </div>
+    </div>
+    {{>_scripts}}
+</body>
+</html>

@@ -1,0 +1,11 @@
+// General styling for charts
+@import 'https://code.highcharts.com/css/highcharts.css';
+
+.highcharts-background{
+    fill: var(--card-background-color);
+    height: 334px;
+}
+
+.highcharts-title{
+    fill: var(--chart-text-color);
+}

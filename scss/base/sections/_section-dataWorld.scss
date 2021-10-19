@@ -1,0 +1,63 @@
+//general order design
+#data-world .section__content{
+    .inline-flex-wrapper{
+        margin-left: 0;
+        justify-content: center;
+        .card{
+            flex-basis: 0;
+            flex-grow: 1;
+            flex-shrink: 1;
+            min-width: 200px;
+            .card-content{
+                height:350px;
+                display:flex;
+                overflow: scroll;
+                align-items: center;
+            }
+        }
+        @media (max-width:1190px){
+            flex-direction: column;
+            .card{
+                width: 100%;
+            }
+        }
+    }
+}
+
+//data-card specific design
+#data-reports .data-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+
+    height: 251px;
+    width:100%;
+    max-width: 185px;
+    padding: 0;
+    margin: 0 6px;
+    flex-wrap: nowrap;
+
+    border: 1px solid hsla(0,0%,100%,.18823529411764706);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px -1px rgba(0,2,2,0.15);
+    text-decoration: none;
+    color: var(--data-card-text-color);
+
+    .data-card__header{
+        .data-card__header__title{
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            margin: 0 20px;
+        }
+        .data-card__header__secondary-title{
+            font-size: 12px;
+            margin: 0 20px;
+        }
+        .data-card__description{
+            font-size: 12px; //<----- not working!!!! you stopped here!
+        }
+    }
+}

@@ -1,13 +1,36 @@
-
 :root{
     --background-color: #edf1f7;
     --text-color: #222b45;
-    --theme-switch-background-color: #d8d8d8;
+    --theme-switch-background-color: #39475d;
+    --main-background-color: #edf1f7;
+    // card
+    --card-background-color: #fff;
+    --card-text-color: #222b45;
+    --card-info-icon-filter: invert(14%) sepia(10%) saturate(2937%) hue-rotate(187deg) brightness(94%) contrast(91%);
+    --card-box-shadow: 3px 6px 14px 0 rgba(0,0,0,0.1);
+    //section
+    --section-title-text-color: #222b45;
+    //chart
+    --chart-text-color: #222b45;
+    //data-card
+    --data-card-text-color: #222b45;
 }
 
 [data-theme="dark"]{
     --background-color: #49667a;
     --text-color: #ffffff;
-    --theme-switch-background-color: #39475d;
+    --theme-switch-background-color: #d8d8d8;
+    --main-background-color: #49667a;
+    //card
+    --card-background-color: #384f5f;
+    --card-text-color: #fff;
+    --card-info-icon-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(116deg) brightness(107%) contrast(104%);
+    --card-box-shadow: 3px 6px 14px 0 rgba(0,0,0,0.1);
+    //section
+    --section-title-text-color: #fff;
+    //chart
+    --chart-text-color: #fff; 
+    //data-card
+    --data-card-text-color: #fff;
 }
 

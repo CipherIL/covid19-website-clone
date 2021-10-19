@@ -1,0 +1,88 @@
+.card{
+    background-color: var(--card-background-color);
+    color: var(--card-text-color);
+    display:flex;
+    flex-direction: column;
+    flex-basis: 0;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: var(--card-box-shadow);
+    position: relative;
+    
+    &.small{
+        padding: 15px;
+        height: 11.5rem;
+        max-width: 430px;
+        min-width: 200px;
+        flex-grow: 1;
+        @media (max-width: 1400px) {
+            min-width: 150px;
+        }
+    }
+
+    &.large{
+        padding: 16px 10px;
+        // width: 30%;
+        height: 350px;
+        @media (max-width: 770px) {
+            width: 100%;
+        }
+    }
+
+    .chart svg{
+        width: 100%;
+        height: 100%;
+    }
+    .card-header{
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        .card-title{
+            font-size: 0.9rem;
+            line-height: 2;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+        .card-description{
+            .card-description__icon{
+                margin-top: 5px;
+                display:flex;
+                align-items: flex-start;
+                height: 100%;
+                img{
+                    width: 17px;
+                    height: 17px;
+                    filter: var(--card-info-icon-filter)
+                }
+            }
+            .card-description__text{
+                visibility: hidden;
+                opacity: 0;
+                background: var(--card-background-color);
+                border: 1px solid var(--card-text-color);
+                border-radius: 5px;
+                position: absolute;
+                padding: 10px 15px;
+                right: 30px;
+                top: 50px;
+                width: 200px;
+                z-index: 1;
+                font-size: 0.7rem;
+                transition: all 200ms 0ms;
+                box-shadow: 0 6px 15px 0 rgba(0,0,0,0.6);
+                @media (max-width: 670px) {
+                    right:0;
+                    width:150px;
+                }
+                
+            }
+            &:hover{
+                .card-description__text{
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
