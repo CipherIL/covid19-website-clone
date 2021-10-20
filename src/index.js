@@ -4,7 +4,8 @@ const hbs = require('hbs');
 const path = require('path');
 
 //Routers
-const pageRouters = require('./routers/page');
+const pageRouters = require('./routers/pageRouters');
+const analysisRouters = require('./routers/analysisRouters');
 
 //Paths
 const partialsPath = path.join(__dirname + '/../templates/partials');
@@ -19,9 +20,13 @@ app.use('/public',express.static(publicPath));
 app.set('view engine', 'hbs');
 app.set('views', viewsPath);
 app.use(pageRouters);
+app.use(analysisRouters);
 
 //Hbs settings
 hbs.registerPartials(partialsPath);
+
+//Connect to mongoDB
+require('./db/mongoose');
 
 //Run app
 app.listen(process.env.PORT,()=>{

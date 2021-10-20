@@ -1,7 +1,9 @@
 #analysis .section__content{
-    
+    display: flex;
+    flex-direction: column;
     .inline-flex-wrapper{
         margin-left: 0;
+        column-gap: 20px;
         justify-content: center;
         .card{
             flex-grow: 1;

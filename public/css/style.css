@@ -419,6 +419,7 @@ body {
 #data-world .section__content .inline-flex-wrapper {
   margin-left: 0;
   justify-content: center;
+  width: 100%;
 }
 #data-world .section__content .inline-flex-wrapper .card {
   flex-basis: 0;
@@ -426,10 +427,41 @@ body {
   flex-shrink: 1;
   min-width: 200px;
 }
+#data-world .section__content .inline-flex-wrapper .card .card-header {
+  padding: 0 24px;
+}
+#data-world .section__content .inline-flex-wrapper .card .card-header .card-title {
+  font-weight: 700;
+  font-size: 1rem;
+}
+#data-world .section__content .inline-flex-wrapper .card .card-header .card-link {
+  height: 27px;
+  border-radius: 14.5px;
+  border: 2px solid #79858e;
+  padding: 4px 15px 4px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  top: 0;
+  left: 0;
+}
+#data-world .section__content .inline-flex-wrapper .card .card-header .card-link a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--data-card-text-color);
+}
+#data-world .section__content .inline-flex-wrapper .card .card-header .card-link a .link-arrow {
+  font-size: 16px;
+  padding-bottom: 3px;
+  padding-right: 5px;
+}
 #data-world .section__content .inline-flex-wrapper .card .card-content {
   height: 350px;
   display: flex;
-  overflow: scroll;
+  overflow: auto;
   align-items: center;
 }
 @media (max-width: 1190px) {
@@ -469,12 +501,116 @@ body {
   font-size: 12px;
   margin: 0 20px;
 }
-#data-reports .data-card .data-card__header .data-card__description {
+#data-reports .data-card .data-card__description {
   font-size: 12px;
 }
 
+#gis .data-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  flex-shrink: 0;
+  height: 251px;
+  width: 100%;
+  max-width: 185px;
+  padding: 0;
+  margin: 0 6px;
+  flex-wrap: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.1882352941);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px -1px rgba(0, 2, 2, 0.15);
+  text-decoration: none;
+  color: var(--data-card-text-color);
+}
+#gis .data-card .data-card__header .data-card__header__title {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0 20px;
+}
+#gis .data-card .data-card__description {
+  font-size: 12px;
+}
+
+#gov-data-base .data-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-shrink: 0;
+  height: 251px;
+  width: 100%;
+  max-width: 185px;
+  padding: 0;
+  margin: 0 6px;
+  flex-wrap: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.1882352941);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px -1px rgba(0, 2, 2, 0.15);
+  text-decoration: none;
+  color: var(--data-card-text-color);
+}
+#gov-data-base .data-card .data-card__header {
+  flex-basis: 0;
+  flex-grow: 1;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+#gov-data-base .data-card .data-card__header .data-card__header__title {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0 20px;
+}
+#gov-data-base .data-card .data-card__description {
+  font-size: 12px;
+  flex-basis: 0;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+#gov-data-base .data-card .data-card__description span {
+  margin: 0 5px;
+}
+
+#gov-data-base .card-header {
+  justify-content: space-between;
+}
+
+#gov-data-card-1 .data-card__header,
+#gov-data-card-5 .data-card__header {
+  background: rgba(0, 127, 127, 0.05);
+  border-bottom: 1px solid #007f7f;
+}
+
+#gov-data-card-2 .data-card__header,
+#gov-data-card-6 .data-card__header {
+  background: rgba(53, 100, 204, 0.05);
+  border-bottom: 1px solid #3564cc;
+}
+
+#gov-data-card-3 .data-card__header {
+  background: rgba(15, 170, 216, 0.05);
+  border-bottom: 1px solid #0faad8;
+}
+
+#gov-data-card-4 .data-card__header {
+  background: rgba(151, 119, 222, 0.05);
+  border-bottom: 1px solid #9777de;
+}
+
+#analysis .section__content {
+  display: flex;
+  flex-direction: column;
+}
 #analysis .section__content .inline-flex-wrapper {
   margin-left: 0;
+  column-gap: 20px;
   justify-content: center;
 }
 #analysis .section__content .inline-flex-wrapper .card {
