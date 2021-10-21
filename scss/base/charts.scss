@@ -1,11 +1,57 @@
 // General styling for charts
 @import 'https://code.highcharts.com/css/highcharts.css';
 
+//General settings
 .highcharts-background{
     fill: var(--card-background-color);
-    height: 334px;
 }
-
 .highcharts-title{
     fill: var(--chart-text-color);
+}
+
+//Axis
+.highcharts-axis-title {
+	fill: var(--chart-text-color);
+    white-space: normal !important;
+}
+.highcharts-axis-labels {
+    fill: var(--chart-text-color);
+    cursor: default;
+    font-size: 0.9em;
+    font-family: var(--text-font-family);
+}
+
+//Line Colors
+.highcharts-color-0 {
+    fill: #90ed7d;
+    stroke: #90ed7d;
+} 
+.highcharts-color-1 {
+    fill: #fd8264;
+    stroke: #fd8264;
+}
+.highcharts-color-2 {
+    fill: #7cb5ec;
+    stroke: #7cb5ec;
+}
+  
+//Tooltip
+.highcharts-tooltip{
+    color: var(--card-text-color);
+    font-family: var(--text-font-family);
+}
+.highcharts-tooltip-box{
+    fill: var(--chart-tooltip-background-color);
+    fill-opacity: 1;
+    stroke-width: 0;
+}
+
+//Legend
+.highcharts-legend-item > text {
+    fill: var(--chart-text-color);
+    font-weight: 600;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;;
+    cursor: pointer;
+    stroke-width: 0;
 }

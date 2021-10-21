@@ -1,6 +1,8 @@
 #analysis .section__content{
     display: flex;
     flex-direction: column;
+
+    //3-card-container Settings
     .inline-flex-wrapper{
         margin-left: 0;
         column-gap: 20px;
@@ -13,6 +15,108 @@
         }
         @media (max-width:770px){
             flex-direction: column;
+        }
+    }
+
+    //Card Header Settings
+
+    //Card Content Settings
+    .card-content{
+        .chart-menu{
+            margin-top: 10px;
+            z-index: 2;
+            position: relative;
+            .chart-menu__button{
+                cursor: pointer;
+                border: 2px solid var(--chart-menu-border-color);
+                border-radius: 1.5rem;
+                min-width: 200px;
+                max-width: 100%;
+                width: fit-content;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                padding: 3px 15px 4px;
+                font-size: 15px;
+                .chart-menu__button__arrow img{
+                    width:12px;
+                    height:12px;
+                    margin-right: 10px;
+                    filter: var(--chart-menu-arrow-color);
+                    transform: rotate(180deg);
+                    transition: transform 500ms;
+                    &.rotate{
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+            .chart-menu__form{
+                display: none;
+                position: absolute;
+                top: 35px;
+                right: 0;
+                border: 2px solid var(--chart-menu-border-color);
+                border-radius: .5rem;
+                background-color: var(--card-background-color);
+                height: 260px;
+
+                &.show{
+                    display: block;
+                }  
+            }
+            .chart-menu__form form{
+                display: flex;
+                flex-direction: column;
+                max-height: 225px;
+                overflow: auto;
+                padding: 0 16px;
+                .form-field{       
+                    display: flex;
+                    
+                    flex-direction: column;
+                    margin: 0px 5px;
+                    label{
+                        font-size: 14px;
+                        font-weight: bold;
+                        margin: 12px 0 4px; 
+                        line-height: 2rem;
+                    }
+                    .radio-option{
+                        margin-bottom: 8px;
+                        font-size: 15px;
+                        cursor: pointer;
+                        input{
+                            cursor: pointer;
+                        }
+                    }
+                    &:last-child{
+                        padding-bottom: 30px;
+                    }
+                }
+            }
+            .chart-menu__form-buttons{
+                position: absolute;
+                bottom:0;
+                display: flex;
+                justify-content: center;
+                width:100%;
+                .form-button{
+                    flex-grow: 1;
+                    color: var(--card-text-color);
+                    background: var(--chart-menu-button-background-color);  
+                    border: none;
+                    font-size: 16px;     
+                    font-weight: 500;  
+                    height:32px;
+                    cursor: pointer;
+                    &:first-child{
+                        border-radius: 0 0 .5rem  0;
+                    }
+                    &:last-child{
+                        border-radius: 0 0 0 .5rem;
+                    }
+                }
+            }
         }
     }
 }

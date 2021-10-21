@@ -1,4 +1,5 @@
 :root{
+    --text-font-family: 'Open Sans', sans-serif;
     --background-color: #edf1f7;
     --text-color: #222b45;
     --theme-switch-background-color: #39475d;
@@ -12,11 +13,16 @@
     --section-title-text-color: #222b45;
     //chart
     --chart-text-color: #222b45;
+    --chart-menu-border-color: #e4e9f2;
+    --chart-menu-arrow-color: invert(68%) sepia(12%) saturate(534%) hue-rotate(182deg) brightness(89%) contrast(85%);
+    --chart-menu-button-background-color: #e6f1f4;
+    --chart-tooltip-background-color: #ffffff;
     //data-card
     --data-card-text-color: #222b45;
 }
 
 [data-theme="dark"]{
+    --text-font-family: 'Open Sans', sans-serif;
     --background-color: #49667a;
     --text-color: #ffffff;
     --theme-switch-background-color: #d8d8d8;
@@ -30,6 +36,10 @@
     --section-title-text-color: #fff;
     //chart
     --chart-text-color: #fff; 
+    --chart-menu-border-color: #79858e;
+    --chart-menu-arrow-color: invert(68%) sepia(12%) saturate(534%) hue-rotate(182deg) brightness(89%) contrast(85%);
+    --chart-menu-button-background-color: #2a3b47;
+    --chart-tooltip-background-color: #21303b;
     //data-card
     --data-card-text-color: #fff;
 }

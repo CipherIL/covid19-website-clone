@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap");
 @import 'https://code.highcharts.com/css/highcharts.css';
 :root {
+  --text-font-family: "Open Sans", sans-serif;
   --background-color: #edf1f7;
   --text-color: #222b45;
   --theme-switch-background-color: #39475d;
@@ -11,10 +12,15 @@
   --card-box-shadow: 3px 6px 14px 0 rgba(0,0,0,0.1);
   --section-title-text-color: #222b45;
   --chart-text-color: #222b45;
+  --chart-menu-border-color: #e4e9f2;
+  --chart-menu-arrow-color: invert(68%) sepia(12%) saturate(534%) hue-rotate(182deg) brightness(89%) contrast(85%);
+  --chart-menu-button-background-color: #e6f1f4;
+  --chart-tooltip-background-color: #ffffff;
   --data-card-text-color: #222b45;
 }
 
 [data-theme=dark] {
+  --text-font-family: "Open Sans", sans-serif;
   --background-color: #49667a;
   --text-color: #ffffff;
   --theme-switch-background-color: #d8d8d8;
@@ -25,6 +31,10 @@
   --card-box-shadow: 3px 6px 14px 0 rgba(0,0,0,0.1);
   --section-title-text-color: #fff;
   --chart-text-color: #fff;
+  --chart-menu-border-color: #79858e;
+  --chart-menu-arrow-color: invert(68%) sepia(12%) saturate(534%) hue-rotate(182deg) brightness(89%) contrast(85%);
+  --chart-menu-button-background-color: #2a3b47;
+  --chart-tooltip-background-color: #21303b;
   --data-card-text-color: #fff;
 }
 
@@ -76,7 +86,7 @@ body {
 .navbar-container {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 10;
   width: 100%;
   box-shadow: rgba(26, 31, 51, 0.6) 0 8px 20px 0;
   border-bottom: 1px solid rgba(26, 31, 51, 0.38);
@@ -98,11 +108,57 @@ body {
 
 .highcharts-background {
   fill: var(--card-background-color);
-  height: 334px;
 }
 
 .highcharts-title {
   fill: var(--chart-text-color);
+}
+
+.highcharts-axis-title {
+  fill: var(--chart-text-color);
+  white-space: normal !important;
+}
+
+.highcharts-axis-labels {
+  fill: var(--chart-text-color);
+  cursor: default;
+  font-size: 0.9em;
+  font-family: var(--text-font-family);
+}
+
+.highcharts-color-0 {
+  fill: #90ed7d;
+  stroke: #90ed7d;
+}
+
+.highcharts-color-1 {
+  fill: #fd8264;
+  stroke: #fd8264;
+}
+
+.highcharts-color-2 {
+  fill: #7cb5ec;
+  stroke: #7cb5ec;
+}
+
+.highcharts-tooltip {
+  color: var(--card-text-color);
+  font-family: var(--text-font-family);
+}
+
+.highcharts-tooltip-box {
+  fill: var(--chart-tooltip-background-color);
+  fill-opacity: 1;
+  stroke-width: 0;
+}
+
+.highcharts-legend-item > text {
+  fill: var(--chart-text-color);
+  font-weight: 600;
+  font-size: 1em;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+  stroke-width: 0;
 }
 
 .navbar-info {
@@ -623,4 +679,98 @@ body {
   #analysis .section__content .inline-flex-wrapper {
     flex-direction: column;
   }
+}
+#analysis .section__content .card-content .chart-menu {
+  margin-top: 10px;
+  z-index: 2;
+  position: relative;
+}
+#analysis .section__content .card-content .chart-menu .chart-menu__button {
+  cursor: pointer;
+  border: 2px solid var(--chart-menu-border-color);
+  border-radius: 1.5rem;
+  min-width: 200px;
+  max-width: 100%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 3px 15px 4px;
+  font-size: 15px;
+}
+#analysis .section__content .card-content .chart-menu .chart-menu__button .chart-menu__button__arrow img {
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+  filter: var(--chart-menu-arrow-color);
+  transform: rotate(180deg);
+  transition: transform 500ms;
+}
+#analysis .section__content .card-content .chart-menu .chart-menu__button .chart-menu__button__arrow img.rotate {
+  transform: rotate(360deg);
+}
+#analysis .section__content .card-content .chart-menu .chart-menu__form {
+  display: none;
+  position: absolute;
+  top: 35px;
+  right: 0;
+  border: 2px solid var(--chart-menu-border-color);
+  border-radius: 0.5rem;
+  background-color: var(--card-background-color);
+  height: 260px;
+}
+#analysis .section__content .card-content .chart-menu .chart-menu__form.show {
+  display: block;
+}
+#analysis .section__content .card-content .chart-menu .chart-menu__form form {
+  display: flex;
+  flex-direction: column;
+  max-height: 225px;
+  overflow: auto;
+  padding: 0 16px;
+}
+#analysis .section__content .card-content .chart-menu .chart-menu__form form .form-field {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 5px;
+}
+#analysis .section__content .card-content .chart-menu .chart-menu__form form .form-field label {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 12px 0 4px;
+  line-height: 2rem;
+}
+#analysis .section__content .card-content .chart-menu .chart-menu__form form .form-field .radio-option {
+  margin-bottom: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+#analysis .section__content .card-content .chart-menu .chart-menu__form form .form-field .radio-option input {
+  cursor: pointer;
+}
+#analysis .section__content .card-content .chart-menu .chart-menu__form form .form-field:last-child {
+  padding-bottom: 30px;
+}
+#analysis .section__content .card-content .chart-menu .chart-menu__form-buttons {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+#analysis .section__content .card-content .chart-menu .chart-menu__form-buttons .form-button {
+  flex-grow: 1;
+  color: var(--card-text-color);
+  background: var(--chart-menu-button-background-color);
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  height: 32px;
+  cursor: pointer;
+}
+#analysis .section__content .card-content .chart-menu .chart-menu__form-buttons .form-button:first-child {
+  border-radius: 0 0 0.5rem 0;
+}
+#analysis .section__content .card-content .chart-menu .chart-menu__form-buttons .form-button:last-child {
+  border-radius: 0 0 0 0.5rem;
 }
