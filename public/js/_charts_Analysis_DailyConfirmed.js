@@ -4,10 +4,11 @@ const $dailyConfirmedChartMenuCancel = document.querySelector('#daily-confirmed-
 const $radioOptions = document.querySelectorAll('#daily-confirmed-chart-menu .radio-option');
 const $dailyConfirmedMenuButtonArrow = document.querySelector('#daily-confirmed-chart-menu .chart-menu__button__arrow img');
 const $dailyConfirmedMenuForm = document.querySelector('#daily-confirmed-chart-menu .chart-menu__form');
+const $dailyConfirmedChartButtonText = document.querySelector('#daily-confirmed-chart-menu .chart-menu__button__text');
 const dailyConfirmedFormData = {
     per100K: true,
     ageGroup: 'overSixty',
-    limit: '30'
+    limit: '31'
 }
 
 //Chart Creation Functions
@@ -15,8 +16,27 @@ const dailyConfirmedByVaccinationChart = (xAxis,yAxis,series)=>{
     Highcharts.chart('daily-confirmed-by-vaccination', {
         chart: {
             type: 'line',
-            height:249,
-            styledMode: true
+            styledMode: true,
+            marginBottom: 70,
+            spacing: [90,15,90,15]
+        },
+        plotOptions:{
+            series:{
+                lineWidth: 5,
+                events:{
+                    legendItemClick: function(e){
+                        e.preventDefault();
+                    },
+                },
+                stats:{
+                    inactive:{
+                        opacity:1
+                    },
+                    hover:{
+                        enabled: false,
+                    }
+                },   
+            }
         },
         title: {
             text: ''
@@ -24,8 +44,8 @@ const dailyConfirmedByVaccinationChart = (xAxis,yAxis,series)=>{
         tooltip:{
             formatter(){
                 const getSymbol = (point) =>{
-                    return `<span style=color:${point.colorIndex===0?"#90ed7d":
-                    (point.colorIndex===1?"#fd8264":"#7cb5ec")};font-size:20px;>●</span>`;
+                    return `<span style=color:${point.colorIndex===0?"var(--chart-line-color-0)":
+                    (point.colorIndex===1?"var(--chart-line-color-1)":"var(--chart-line-color-2)")};font-size:20px;>●</span>`;
                 }
                 const getDate = () =>{
                     const date = new Date(this.x);
@@ -67,19 +87,35 @@ const dailyConfirmedByVaccinationChart = (xAxis,yAxis,series)=>{
                 }
                 let s = '<div style="font-size:14px;text-align:right;line-height:1;">';
                 s += getDate()
-                this.points.slice().reverse().forEach(function(point){
+                this.points.forEach(function(point){
                     s += `${point.series.name} <strong>${point.y}</strong> ${getSymbol(point)}<br>`
                 }) 
                 return s + "</div>";   
             },
             shared: true,
-            useHTML:true
+            useHTML:true,
+            borderRadius: 15
         },
         xAxis: {
             title:{
-                text:'תאריך'
+                text:'תאריך',
+                x:-20
             },
-            type:'datetime'
+            type: 'category',
+            categories: xAxis,
+            labels:{
+                formatter: function() {
+                    if(this.isLast) return
+                    const date = new Date(this.value)
+                    return `${('0'+date.getDate()).slice(-2)}.${('0'+(date.getMonth()+1)).slice(-2)}`;
+                },
+                step: Math.floor((xAxis.length/15)),
+            },
+            crosshair:{
+                width:2,
+
+            }
+            
         },
         yAxis: {
             title: {
@@ -88,30 +124,40 @@ const dailyConfirmedByVaccinationChart = (xAxis,yAxis,series)=>{
                 offset: 0,
                 rotation: 0,
                 y: -50,
-                x:50,
+                x:10,
                 useHTML: true,
                 style:{
                     width: "50px",
-                    whiteSpace: 'wrap'
-                }
+                    whiteSpace: 'wrap',
+                    textAlign:'right'
+                },
             },
-            tickInterval: yAxis[0],      
+            tickInterval: yAxis[0],
+            tickAmount: 6,
+            allowDecimals: false,
+            endOnTick: yAxis[-1] 
         },
         series: [{
-            pointStart: Date.now() - xAxis,
-            pointInterval: 24*60*60*1000,
-            name: 'מחוסנים',
-            data: series.vaccinated
-        },{
-            pointStart: Date.now() - xAxis,
-            pointInterval: 24*60*60*1000,
-            name: 'מחוסנים ללא תוקף',
-            data: series.vaccinatedExpired
-        },{
-            pointStart: Date.now() - xAxis,
-            pointInterval: 24*60*60*1000,
             name: 'לא מחוסנים',
-            data: series.notVaccinated
+            data: series.notVaccinated,
+            marker:{
+                symbol: 'circle',
+                radius: 3
+            },
+        },{
+            name: 'מחוסנים ללא תוקף',
+            data: series.vaccinatedExpired,
+            marker:{
+                symbol: 'circle',
+                radius: 3
+            }
+        },{
+            name: 'מחוסנים',
+            data: series.vaccinated,
+            marker:{
+                symbol: 'circle',
+                radius: 3
+            }
         }],
         credits: {
             enabled: false,
@@ -120,15 +166,23 @@ const dailyConfirmedByVaccinationChart = (xAxis,yAxis,series)=>{
             layout: 'horizontal',
             align: 'right',
             verticalAlign: 'top',
-            floating: false
-        }
-    });
+            floating: true,
+            y: -85,
+            rtl: true,
+            itemHoverStyle: {},
+            navigation:{
+                enabled: false,
+            },
+        },
+        
+    })
+    .setSize(undefined,267);
 }
 const createDailyConfirmedChart = async (data) =>{
     const dailyConfirmedData = await axios.get(`/data/analysis/daily-confirmed/${""+data.limit}`);
     if(dailyConfirmedData.status===200){
         const yAxis = stepCalculator(getDailyConfirmedMaxValue(dailyConfirmedData.data,data.ageGroup,data.per100K),5);
-        const xAxis = data.limit * 24 * 60 * 60 * 1000 //miliseconds in this amount of days
+        const xAxis = getArrayOfDates(dailyConfirmedData.data)
         const series = getDailyConfirmedSeries(dailyConfirmedData.data,data.ageGroup,data.per100K);
         dailyConfirmedByVaccinationChart(xAxis,yAxis,series);
     }
@@ -175,6 +229,28 @@ const getDailyConfirmedSeries = (data,ageGroup,per100K)=>{
 }
 
 //Chart Menu Logic
+const setDailyConfirmedChartMenuButtonText = ()=>{
+    let s = "";
+    if(dailyConfirmedFormData.per100K) s+= "ל-100 אלף תושבים, ";
+    else s+= "מספר מוחלט, ";
+
+    if(dailyConfirmedFormData.ageGroup==="overSixty") s+= "מעל גיל 60, ";
+    else if(dailyConfirmedFormData.ageGroup==="underSixty") s+= "עד גיל 60, ";
+    else s+= "כל האוכלוסיה, ";
+
+    if(dailyConfirmedFormData.limit==="31") s+= "חודש אחרון";
+    else if(dailyConfirmedFormData.limit==="92") s+="3 חודשים";
+    else if(dailyConfirmedFormData.limit==="183") s+="6 חודשים";
+    else if(dailyConfirmedFormData.limit==="365") s+="שנה";
+    else s+="עד עכשיו";
+
+    $dailyConfirmedChartButtonText.innerHTML = s;
+}
+const resetDailyConfirmedChartMenuRadios = ()=>{
+    document.getElementById('per100K-'+(dailyConfirmedFormData.per100K?"true":"false")).checked=true;
+    document.getElementById('ageGroup-'+ dailyConfirmedFormData.ageGroup).checked=true;
+    document.getElementById('limit-'+ dailyConfirmedFormData.limit).checked=true;
+}
 $dailyConfirmedChartMenu.addEventListener('click',()=>{
     $dailyConfirmedMenuButtonArrow.classList.toggle('rotate');
     $dailyConfirmedMenuForm.classList.toggle('show');
@@ -186,10 +262,13 @@ $dailyConfirmedChartMenuSubmit.addEventListener('click',(e)=>{
     dailyConfirmedFormData.limit = document.querySelector('input[name="limit"]:checked').value;
     $dailyConfirmedMenuButtonArrow.classList.toggle('rotate');
     $dailyConfirmedMenuForm.classList.toggle('show');
+    setDailyConfirmedChartMenuButtonText();
     createDailyConfirmedChart(dailyConfirmedFormData);
 })
 $dailyConfirmedChartMenuCancel.addEventListener('click',(e)=>{
-
+    resetDailyConfirmedChartMenuRadios();
+    $dailyConfirmedMenuButtonArrow.classList.toggle('rotate');
+    $dailyConfirmedMenuForm.classList.toggle('show');
 })
 $radioOptions.forEach((option)=>{
     option.addEventListener('click',()=>{

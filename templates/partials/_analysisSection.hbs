@@ -24,8 +24,6 @@
                 <div class="card-menu">
                     
                 </div>
-            </div>
-            <div class="card-content">
                 <div class="chart-menu" id="daily-confirmed-chart-menu">
                     <div class="chart-menu__button">
                         <span class="chart-menu__button__text">ל-100 אלף תושבים, מעל גיל 60, חודש אחרון</span>
@@ -36,40 +34,40 @@
                             <div class="form-field">
                                 <label>סוג ניתוח</label>
                                 <div class="radio-option">
-                                    <input type="radio" name="per100K" value="false"> מספר מוחלט
+                                    <input type="radio" name="per100K" value="false" id="per100K-false"> מספר מוחלט
                                 </div>
                                 <div class="radio-option">
-                                    <input type="radio" name="per100K" value="true" checked> ל-100 אלף תושבים
+                                    <input type="radio" name="per100K" value="true" id="per100K-true"checked> ל-100 אלף תושבים
                                 </div>
                             </div>
                             <div class="form-field">
                                 <label>אוכלוסייה</label>
                                 <div class="radio-option">
-                                    <input type="radio" name="ageGroup" value='general'> כל האוכלוסיה
+                                    <input type="radio" name="ageGroup" value='general' id="ageGroup-general"> כל האוכלוסיה
                                 </div>
                                 <div class="radio-option">
-                                    <input type="radio" name="ageGroup" value='underSixty'> עד גיל 60
+                                    <input type="radio" name="ageGroup" value='underSixty'id="ageGroup-underSixty"> עד גיל 60
                                 </div>
                                 <div class="radio-option">
-                                    <input type="radio" name="ageGroup" value='overSixty' checked> מעל גיל 60
+                                    <input type="radio" name="ageGroup" value='overSixty' id="ageGroup-overSixty"checked> מעל גיל 60
                                 </div>
                             </div>
                             <div class="form-field">
                                 <label>זמן</label>
                                 <div class="radio-option">
-                                    <input type="radio" name="limit" value='all'> עד עכשיו
+                                    <input type="radio" name="limit" value='all' id="limit-all"> עד עכשיו
                                 </div>
                                 <div class="radio-option">
-                                    <input type="radio" name="limit" value='365'> שנה
+                                    <input type="radio" name="limit" value='365' id="limit-365"> שנה
                                 </div>
                                 <div class="radio-option">
-                                    <input type="radio" name="limit" value='183'> 6 חודשים
+                                    <input type="radio" name="limit" value='183' id="limit-183"> 6 חודשים
                                 </div>
                                 <div class="radio-option">
-                                    <input type="radio" name="limit" value='92'> 3 חודשים
+                                    <input type="radio" name="limit" value='92' id="limit-92"> 3 חודשים
                                 </div>
                                 <div class="radio-option">
-                                    <input type="radio" name="limit" value='31' checked> חודש אחרון
+                                    <input type="radio" name="limit" value='31' id="limit-31" checked> חודש אחרון
                                 </div>
                             </div>
                         </form>
@@ -79,17 +77,91 @@
                         </div>
                     </div>
                 </div>
-                <div class="chart-legend">
-
-                </div>
+            </div>
+            <div class="card-content">
                 <div id="daily-confirmed-by-vaccination" class="chart"></div>
             </div>
         </div>
         <div class="card large">
-            <div class="chart-legend">
+            <div class="card-header">
+                <div class="card-title">חולים קשה - התחסנות</div>
+                <div class="card-description">
+                    <div class="card-description__icon"><img src="/public/media/icons/info.svg"></div>
+                    <div class="card-description__text">
+                        המספר היומי של נדבקים בנגיף COVID-19, לפי מצב התחסנות.
+                        <br><br>
+                        ל-100K תושבים - שכיחות הנדבקים לכל 100,000 תושבים, עבור כל קבוצת מצב התחסנות.
+                        <br><br>
+                        מחוסנים:
+                        <br>- מי שקיבלו 2 או 3 מנות חיסון ועבר שבוע מאז קבלת המנה האחרונה (שבועיים בחיסוני מודרנה) אך עוד לא עברה חצי שנה מאז.
+                        <br>- מי שהחלימו וקיבלו לאחר מכן לפחות מנת חיסון אחת ועבר שבוע מאז קבלת המנה (שבועיים בחיסוני מודרנה).
+                        <br>- מי שקיבלו לפחות מנת חיסון אחת ולאחר מכן נדבקו והחלימו.
+                        <br><br>
+                        מחוסנים לא בתוקף - מי שקיבלו 2 מנות חיסון ועברו יותר מחצי שנה ושבוע מאז קבלת המנה האחרונה (חצי שנה ושבועיים בחיסוני מודרנה) ולא קיבלו מנה נוספת.
+                        <br><br>
+                        לא מחוסנים - מי שלא קיבלו מנת חיסון ראשונה.
+                    </div>
+                </div>
+                <div class="card-menu">
                     
                 </div>
-            <div id="severly-ill-by-vaccination" class="chart"></div>
+                <div class="chart-menu" id="severly-ill-chart-menu">
+                    <div class="chart-menu__button">
+                        <span class="chart-menu__button__text">ל-100 אלף תושבים, מעל גיל 60, חודש אחרון</span>
+                        <span class="chart-menu__button__arrow"><img src="/public/media/svgs/up-arrow.svg"></span>
+                    </div>
+                    {{!-- <div class="chart-menu__form">
+                        <form>
+                            <div class="form-field">
+                                <label>סוג ניתוח</label>
+                                <div class="radio-option">
+                                    <input type="radio" name="per100K" value="false" id="per100K-false"> מספר מוחלט
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" name="per100K" value="true" id="per100K-true"checked> ל-100 אלף תושבים
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <label>אוכלוסייה</label>
+                                <div class="radio-option">
+                                    <input type="radio" name="ageGroup" value='general' id="ageGroup-general"> כל האוכלוסיה
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" name="ageGroup" value='underSixty'id="ageGroup-underSixty"> עד גיל 60
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" name="ageGroup" value='overSixty' id="ageGroup-overSixty"checked> מעל גיל 60
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <label>זמן</label>
+                                <div class="radio-option">
+                                    <input type="radio" name="limit" value='all' id="limit-all"> עד עכשיו
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" name="limit" value='365' id="limit-365"> שנה
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" name="limit" value='183' id="limit-183"> 6 חודשים
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" name="limit" value='92' id="limit-92"> 3 חודשים
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" name="limit" value='31' id="limit-31" checked> חודש אחרון
+                                </div>
+                            </div>
+                        </form>
+                        <div class="chart-menu__form-buttons">
+                            <button class="form-button" id="submit">אישור</button>
+                            <button class="form-button" id="cancel">ביטול</button>
+                        </div>
+                    </div> --}}
+                </div>
+            </div>
+            <div class="card-content">
+                <div id="severly-ill-by-vaccination" class="chart"></div>
+            </div>
         </div>
         <div class="card large">
             <div class="chart-legend">
@@ -98,7 +170,7 @@
             <div id="actively-ill-by-vaccination" class="chart"></div>
         </div>
     </div>
-    <div class="inline-flex-wrapper">
+    {{!-- <div class="inline-flex-wrapper">
         <div class="card large">
             <div class="chart"></div>
         </div>
@@ -108,5 +180,5 @@
         <div class="card large">
             <div class="chart"></div>
         </div>
-    </div>
+    </div> --}}
 </div>
