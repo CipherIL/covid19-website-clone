@@ -18,7 +18,13 @@ const dailyConfirmedByVaccinationChart = (xAxis,yAxis,series)=>{
             type: 'line',
             styledMode: true,
             marginBottom: 70,
-            spacing: [90,15,90,15]
+            spacing: [90,25,90,25],
+            alignTicks: true,
+            
+        },
+        time:{
+            useUTC: true,
+            timezoneOffset: 120,
         },
         plotOptions:{
             series:{
@@ -36,6 +42,11 @@ const dailyConfirmedByVaccinationChart = (xAxis,yAxis,series)=>{
                         enabled: false,
                     }
                 },   
+            },
+            line:{
+                pointStart: Date.parse(new Date(xAxis[0]).toUTCString()),
+                pointInterval: 1,
+                pointIntervalUnit: 'day',
             }
         },
         title: {
@@ -97,25 +108,26 @@ const dailyConfirmedByVaccinationChart = (xAxis,yAxis,series)=>{
             borderRadius: 15
         },
         xAxis: {
+            startOnTick: false,
+            showFirstLabel: false,
             title:{
                 text:'תאריך',
                 x:-20
             },
-            type: 'category',
-            categories: xAxis,
             labels:{
                 formatter: function() {
-                    if(this.isLast) return
-                    const date = new Date(this.value)
-                    return `${('0'+date.getDate()).slice(-2)}.${('0'+(date.getMonth()+1)).slice(-2)}`;
+                    const date = new Date(this.pos)
+                    let utcDate = UtcConvert(date);
+                    this.tick.pos = utcDate;
+                    this.pos = utcDate;
+                    if(utcDate<UtcConvert(new Date(xAxis[0])))
+                        return              
+                    return Highcharts.dateFormat('%d.%m',this.value)
                 },
-                step: Math.floor((xAxis.length/15)),
             },
             crosshair:{
                 width:2,
-
-            }
-            
+            } 
         },
         yAxis: {
             title: {
@@ -138,6 +150,7 @@ const dailyConfirmedByVaccinationChart = (xAxis,yAxis,series)=>{
             endOnTick: yAxis[-1] 
         },
         series: [{
+            type: 'line',
             name: 'לא מחוסנים',
             data: series.notVaccinated,
             marker:{

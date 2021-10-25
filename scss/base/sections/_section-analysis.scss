@@ -13,7 +13,7 @@
             flex-basis: 0;
             min-width: 200px;
         }
-        @media (max-width:800px){
+        @media (max-width:980px){
             flex-direction: column;
             .card{
                 width:100%;
@@ -43,6 +43,11 @@
                 text-align: center;
                 padding: 3px 15px 4px;
                 font-size: 15px;
+                .chart-menu__button__text{
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
                 .chart-menu__button__arrow img{
                     width:12px;
                     height:12px;

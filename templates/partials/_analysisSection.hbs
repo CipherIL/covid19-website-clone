@@ -88,14 +88,20 @@
                 <div class="card-description">
                     <div class="card-description__icon"><img src="/public/media/icons/info.svg"></div>
                     <div class="card-description__text">
-                        המספר היומי של נדבקים בנגיף COVID-19, לפי מצב התחסנות.
+                        המספר היומי של חולים במחלת נגיף COVID-19 במצב קשה (כולל במצב קריטי), לאורך זמן, המאושפזים בבתי חולים לאשפוז כללי, לפי מצב התחסנות
                         <br><br>
                         ל-100K תושבים - שכיחות הנדבקים לכל 100,000 תושבים, עבור כל קבוצת מצב התחסנות.
                         <br><br>
-                        מחוסנים:
-                        <br>- מי שקיבלו 2 או 3 מנות חיסון ועבר שבוע מאז קבלת המנה האחרונה (שבועיים בחיסוני מודרנה) אך עוד לא עברה חצי שנה מאז.
-                        <br>- מי שהחלימו וקיבלו לאחר מכן לפחות מנת חיסון אחת ועבר שבוע מאז קבלת המנה (שבועיים בחיסוני מודרנה).
-                        <br>- מי שקיבלו לפחות מנת חיסון אחת ולאחר מכן נדבקו והחלימו.
+                        חולים קשה - פעילים: מספר החולים במצב קשה וקריטי בסוף כל יום
+                        <br><br>
+                        חולים קשה - חדשים: מספר החולים במצב קשה וקריטי שיום קודם הוגדרו במצב רפואי אחר.
+                        <br><br>
+                        מחוסנים: <br>
+                        - מי שקיבלו 2 או 3 מנות חיסון ועבר שבוע מאז קבלת המנה האחרונה (שבועיים בחיסוני מודרנה) אך עוד לא עברה חצי שנה מאז.
+                        <br>
+                        - מי שהחלימו וקיבלו לאחר מכן לפחות מנת חיסון ועבר שבוע מאז קבלת המנה (שבועיים בחיסוני מודרנה).
+                        <br>
+                        - מי שקיבלו לפחות מנת חיסון אחת ולאחר מכן נדבקו והחלימו.
                         <br><br>
                         מחוסנים לא בתוקף - מי שקיבלו 2 מנות חיסון ועברו יותר מחצי שנה ושבוע מאז קבלת המנה האחרונה (חצי שנה ושבועיים בחיסוני מודרנה) ולא קיבלו מנה נוספת.
                         <br><br>
@@ -107,56 +113,65 @@
                 </div>
                 <div class="chart-menu" id="severly-ill-chart-menu">
                     <div class="chart-menu__button">
-                        <span class="chart-menu__button__text">ל-100 אלף תושבים, מעל גיל 60, חודש אחרון</span>
+                        <span class="chart-menu__button__text">חולים קשה - פעילים, ל-100 אלף תושבים, מעל גיל 60, חודש אחרון</span>
                         <span class="chart-menu__button__arrow"><img src="/public/media/svgs/up-arrow.svg"></span>
                     </div>
-                    {{!-- <div class="chart-menu__form">
+                    <div class="chart-menu__form">
                         <form>
+                            <div class="form-field">
+                                <label>משתנה</label>
+                                <div class="radio-option">
+                                    <input type="radio" name="severly-ill-severeType" value="new" id="severly-ill-severeType-new"> חולים קשה - חדשים
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" name="severly-ill-severeType" value="active" id="severly-ill-severeType-active" checked> חולים קשה - פעילים
+                                </div>
+                            </div>
                             <div class="form-field">
                                 <label>סוג ניתוח</label>
                                 <div class="radio-option">
-                                    <input type="radio" name="per100K" value="false" id="per100K-false"> מספר מוחלט
+                                    <input type="radio" name="severly-ill-per100K" value="false" id="severly-ill-per100K-false"> מספר מוחלט
                                 </div>
                                 <div class="radio-option">
-                                    <input type="radio" name="per100K" value="true" id="per100K-true"checked> ל-100 אלף תושבים
+                                    <input type="radio" name="severly-ill-per100K" value="true" id="severly-ill-per100K-true"checked> ל-100 אלף תושבים
                                 </div>
                             </div>
                             <div class="form-field">
                                 <label>אוכלוסייה</label>
                                 <div class="radio-option">
-                                    <input type="radio" name="ageGroup" value='general' id="ageGroup-general"> כל האוכלוסיה
+                                    <input type="radio" name="severly-ill-ageGroup" value='general' id="severly-ill-ageGroup-general"> כל האוכלוסיה
                                 </div>
                                 <div class="radio-option">
-                                    <input type="radio" name="ageGroup" value='underSixty'id="ageGroup-underSixty"> עד גיל 60
+                                    <input type="radio" name="severly-ill-ageGroup" value='underSixty' id="severly-ill-ageGroup-underSixty"> עד גיל 60
                                 </div>
                                 <div class="radio-option">
-                                    <input type="radio" name="ageGroup" value='overSixty' id="ageGroup-overSixty"checked> מעל גיל 60
+                                    <input type="radio" name="severly-ill-ageGroup" value='overSixty' id="severly-ill-ageGroup-overSixty" checked> מעל גיל 60
                                 </div>
                             </div>
                             <div class="form-field">
                                 <label>זמן</label>
                                 <div class="radio-option">
-                                    <input type="radio" name="limit" value='all' id="limit-all"> עד עכשיו
+                                    <input type="radio" name="severly-ill-limit" value='all' id="severly-ill-limit-all"> עד עכשיו
                                 </div>
                                 <div class="radio-option">
-                                    <input type="radio" name="limit" value='365' id="limit-365"> שנה
+                                    <input type="radio" name="severly-ill-limit" value='365' id="severly-ill-limit-365"> שנה
                                 </div>
                                 <div class="radio-option">
-                                    <input type="radio" name="limit" value='183' id="limit-183"> 6 חודשים
+                                    <input type="radio" name="severly-ill-limit" value='183' id="severly-ill-limit-183"> 6 חודשים
                                 </div>
                                 <div class="radio-option">
-                                    <input type="radio" name="limit" value='92' id="limit-92"> 3 חודשים
+                                    <input type="radio" name="severly-ill-limit" value='92' id="severly-ill-limit-92"> 3 חודשים
                                 </div>
                                 <div class="radio-option">
-                                    <input type="radio" name="limit" value='31' id="limit-31" checked> חודש אחרון
+                                    <input type="radio" name="severly-ill-limit" value='31' id="severly-ill-limit-31" checked> חודש אחרון
                                 </div>
                             </div>
                         </form>
                         <div class="chart-menu__form-buttons">
-                            <button class="form-button" id="submit">אישור</button>
-                            <button class="form-button" id="cancel">ביטול</button>
+                            <button class="form-button" id="severly-ill-submit">אישור</button>
+                            <button class="form-button" id="severly-ill-cancel">ביטול</button>
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
             <div class="card-content">

@@ -6,6 +6,7 @@ const path = require('path');
 //Routers
 const pageRouters = require('./routers/pageRouters');
 const analysisRouters = require('./routers/analysisRouters');
+const overviewRouters = require('./routers/overviewRouters');
 
 //Paths
 const partialsPath = path.join(__dirname + '/../templates/partials');
@@ -21,6 +22,7 @@ app.set('view engine', 'hbs');
 app.set('views', viewsPath);
 app.use(pageRouters);
 app.use(analysisRouters);
+app.use(overviewRouters);
 
 //Hbs settings
 hbs.registerPartials(partialsPath);

@@ -503,6 +503,13 @@ body {
   }
 }
 
+#overview .card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 #data-world .section__content .inline-flex-wrapper {
   margin-left: 0;
   justify-content: center;
@@ -706,7 +713,7 @@ body {
   flex-basis: 0;
   min-width: 200px;
 }
-@media (max-width: 800px) {
+@media (max-width: 980px) {
   #analysis .section__content .inline-flex-wrapper {
     flex-direction: column;
   }
@@ -736,6 +743,11 @@ body {
   text-align: center;
   padding: 3px 15px 4px;
   font-size: 15px;
+}
+#analysis .section__content .card-header .chart-menu .chart-menu__button .chart-menu__button__text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 #analysis .section__content .card-header .chart-menu .chart-menu__button .chart-menu__button__arrow img {
   width: 12px;
