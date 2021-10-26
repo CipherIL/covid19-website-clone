@@ -1,0 +1,117 @@
+<div class="section__title">רמזור בישובים</div>
+<div class="section__content">
+    <div class="inline-flex-wrapper">
+        <div class="card large">
+            <div class="card-header">
+                <div class="card-header__text-area">
+                    <div class="card-title">
+                        <span class="card-title__text">תכנית הרמזור</span>
+                        <div class="card-description">
+                            <div class="card-description__icon"><img src="/public/media/icons/info.svg"></div>
+                            <div class="card-description__text">
+                                ציון וצבעי הרמזור ליישובים בהם יותר מ 2,000 תושבים.
+                                <br><br>
+                                צבע תקנות חינוך - צבע הקטגוריה במודל הרמזור אליה משויך הישוב, הנקבע אחת לשבוע ומשמש לקביעת הנחיות לפעילויות מוסדות החינוך ביישוב במשך שבוע הלימודים
+                                <br><br>
+                                ציון וצבע יומי - ציון המחושב בכל יום על סמך נתונים ימויים של שאר המדדים המוצגים בטבלה (למעט חולים פעילים).
+                                <br>
+                                צבע הרקע של הציון מעיד על הסיווג אליו משויך הישוב לפי הקטגוריות של מודל הרמזור המפורטים במקרא
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-subtitle">*מרכיבי ציון הרמזור (לפי נתוני השבוע האחרון)</div>
+                </div>
+                <div class="card-header__info-container">
+                    <div class="card-header__info">
+                        <span class="card-header__info__icon">i</span>
+                        <span class="card-header__info__text">הנתונים נכונים לתאריך 25/10/2021</span>
+                    </div>
+                </div>
+                <div class="card-header__search">
+                    <div class="search-form">
+                        <div class="search-form__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                            viewBox="0 0 30 30">
+                            <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"></path></svg>
+                        </div>
+                        <div class="search-form__input">
+                            <input type="text" id="traffic-light-search-input" placeholder="חיפוש ישוב">
+                        </div>
+                        <div class="search-form__clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-legend">
+                <div class="legend-item">
+                    <div class="legend-item__color-box red"></div>
+                    <div class="legend-item__text">
+                        <div class="legend-item__text__title">אדום</div>
+                        <div class="legend-item__text__subtitle">ציון 7.5 ומעלה</div>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-item__color-box orange"></div>
+                    <div class="legend-item__text">
+                        <div class="legend-item__text__title">כתום</div>
+                        <div class="legend-item__text__subtitle">ציון בין 6 ל - 7.5</div>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-item__color-box yellow"></div>
+                    <div class="legend-item__text">
+                        <div class="legend-item__text__title">צהוב</div>
+                        <div class="legend-item__text__subtitle">ציון בין 4.5 ל - 6</div>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-item__color-box green"></div>
+                    <div class="legend-item__text">
+                        <div class="legend-item__text__title">ירוק</div>
+                        <div class="legend-item__text__subtitle">ציון עד 4.5</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content">
+                <table id="traffic-light-table">
+                    <thead class="table-fixed-head">
+                        <tr class="table-head-row">
+                            <th>
+                                <span class="table-head-row__text">יישוב</span>
+                            </th>
+                            <th>
+                                <span class="table-head-row__text">צבע תקנות חינוך</span>
+                            </th>
+                            <th>
+                                <span class="table-head-row__text">ציון וצבע יומי</span>
+                            </th>
+                            <th class="dark">
+                                <span class="table-head-row__text">
+                                    חולים חדשים לכל 10,000 נפש <b>*</b>
+                                </span>
+                            </th>
+                            <th class="dark">
+                                <span class="table-head-row__text">
+                                    % הבדיקות החיוביות <b>*</b>
+                                </span>
+                            </th>
+                            <th class="dark">
+                                <span class="table-head-row__text">
+                                    שיעור שינוי מאומתים <b>*</b>
+                                </span>
+                            </th>
+                            <th>
+                                <span class="table-head-row__text">
+                                    חולים פעילים
+                                </span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-content scrollable-container">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>       
+</div>

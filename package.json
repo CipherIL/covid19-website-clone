@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chalk": "^4.1.2",
     "convert-excel-to-json": "^1.7.0",
     "env-cmd": "^10.1.0",
     "sass": "^1.43.2"

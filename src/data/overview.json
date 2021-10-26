@@ -1,1 +1,1 @@
-{"date":"25-10-2021","overallDead":8049,"vaccinations":{"first":6219981,"second":5715624,"third":3906905},"confirmed":{"yesterday":810,"today":114,"overall":1323516}}
+{"date":"25-10-2021","overallDead":8049,"vaccinations":{"first":6219981,"second":5715624,"third":3906905},"confirmed":{"yesterday":866,"today":172,"overall":1324451},"confirmedPrecentage":{"virusTests":70934,"overallTests":84439,"precentage":"1.22"},"activeIll":{"activeToday":19660,"activeYesterday":19908},"illnessRanks":{"light":78,"medium":44,"severe":279}}

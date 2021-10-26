@@ -48,13 +48,113 @@
     }
 }
 
+//general card-content rules
 #overview .card-content{
-    //general card-content rules
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    overflow: hidden;  
+    .overview-data-item{
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: nowrap;
+    } 
+    .overview-data-item__title{
+        font-size: 0.8rem;
+        margin-inline-end: 16px;
+    }
+    .overview-data-item__data{
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 1.25;
+        &.small{
+            font-size: 0.8rem;
+            flex-grow: 0 !important;
+            padding: 0 2px
+        }
+    }
+}
+//vaccination rules
+#overview__vaccination .card-content{
     
-    //vaccination rules
-    
+}
+//overview__dead rules
+#overview__dead .card-content{
+    justify-content: flex-start;
+    .overview-data-item__data{
+        margin-top: 8px;
+    }
+}
+
+//overview__confirmed
+#overview__confirmed .card-content{
+    .overview-data-item__title{
+        line-height: 1.25;
+        padding: 0 2px;
+    }
+}
+
+#overview__confirmed-precentage .card-content{
+    .overview-data-item__title{
+        line-height: 1.25;
+        padding: 0 2px;
+        white-space: nowrap;
+    }
+}
+
+#overview__active-ill .card-content{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    .overview-data-item{
+        &.wide{
+            width: 100%;
+        }
+        &.col{
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+        }
+    }
+
+    #overview__active-difference{
+        font-size: 0.8rem;
+        padding: 0 2px;  
+        direction: ltr;     
+        &+.overview-data-item__title{
+            padding: 0 2px;
+            line-height: 1.25;
+        }
+    }
+}
+
+#overview__severely-ill .card-content{
+    justify-content: flex-start;
+    .overview-circle{
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        margin-inline-end: 8px;
+        &.red{
+            background: #e21d48;
+        }
+        &.yellow{
+            background: #e6b957;
+        }
+    }
+    .overview-data-item__title{
+        margin: 0;
+        padding: 0 2px;
+    }
+    .overview-data-item__data{
+        padding: 0 2px;
+    }
+    #overview__severe-ill{
+        margin-bottom: 6px;
+    }
+    #overview__medium-ill{
+        margin-top: 16px;
+    }
 }

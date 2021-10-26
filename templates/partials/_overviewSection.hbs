@@ -1,7 +1,7 @@
 <div class="section__title first-section">מבט על</div>
 <div class="section__content">
     <div class="inline-flex-wrapper first">
-        <div class="card small">
+        <div class="card small" id="overview__confirmed">
             <div class="card-header">
                 <div class="card-title">מאומתים חדשים אתמול</div>
                 <div class="card-description">
@@ -13,10 +13,20 @@
                 </div>
             </div>
             <div class="card-content">
-
+                <div class="overview-data-item">
+                    <div class="overview-data-item__data" id="overview__confirmed-yesterday"></div>
+                </div>
+                <div class="overview-data-item">
+                    <div class="overview-data-item__data small" id="overview__confirmed-today"></div>
+                    <div class="overview-data-item__title">מחצות</div>
+                </div>
+                <div class="overview-data-item">
+                    <div class="overview-data-item__data small" id="overview__confirmed-overall"></div>
+                    <div class="overview-data-item__title">סה"כ</div>
+                </div>
             </div>
         </div>
-        <div class="card small">
+        <div class="card small" id="overview__active-ill">
             <div class="card-header">
                 <div class="card-title">חולים פעילים</div>
                 <div class="card-description">
@@ -31,13 +41,27 @@
                 </div>
             </div>
             <div class="card-content">
-
+                <div class="overview-data-item wide">
+                    <div class="overview-data-item__data" id="overview__active-ill-yesterday"></div>
+                </div>
+                <div class="overview-data-item wide">
+                    <div class="overview-data-item__data" id="overview__active-difference"></div>
+                    <div class="overview-data-item__title">מחצות</div>
+                </div>
+                <div class="overview-data-item col">
+                    <div class="overview-data-item__title">בית חולים</div>
+                    <div class="overview-data-item__data small">367</div>
+                </div>
+                <div class="overview-data-item col">
+                    <div class="overview-data-item__title">מלון</div>
+                    <div class="overview-data-item__data small">54</div>
+                </div>
             </div>
         </div>
     </div>
     <div class="line-break first"></div>
     <div class="inline-flex-wrapper second">
-        <div class="card small">
+        <div class="card small" id="overview__severely-ill">
             <div class="card-header">
                 <div class="card-title">חולים קשה</div>
                 <div class="card-description">
@@ -50,10 +74,34 @@
                 </div>
             </div>
             <div class="card-content">
-
+                <div class="overview-data-item">
+                    <div class="overview-data-item__data" id="overview__severe-ill"></div>
+                </div>
+                <div class="overview-data-item">
+                    <div class="overview-data-item__title">
+                        <div class="overview-circle red"></div>
+                        מתוכם קריטי
+                    </div>
+                    <div class="overview-data-item__data small">156</div>
+                </div>
+                <div class="overview-data-item">
+                    <div class="overview-data-item__title">
+                        <div class="overview-circle yellow"></div>
+                        מונשמים
+                    </div>
+                    <div class="overview-data-item__data small">139</div>
+                </div>
+                <div class="overview-data-item">
+                    <div class="overview-data-item__title">חולים בינוני</div>
+                    <div class="overview-data-item__data small" id="overview__medium-ill"></div>
+                </div>
+                <div class="overview-data-item">
+                    <div class="overview-data-item__title">חולים קל</div>
+                    <div class="overview-data-item__data small" id="overview__light-ill"></div>
+                </div>
             </div>
         </div>
-        <div class="card small">
+        <div class="card small" id="overview__vaccination">
             <div class="card-header">
                 <div class="card-title">מתחסנים</div>
                 <div class="card-description">
@@ -66,24 +114,24 @@
                 </div>
             </div>
             <div class="card-content">
-                <div class="vaccination-data-item">
-                    <span class="vaccination-data-item__title">מנה 1</span>
-                    <span class="vaccination-data-item__data" id="first-vaccine"></span>
+                <div class="overview-data-item">
+                    <span class="overview-data-item__title">מנה 1</span>
+                    <span class="overview-data-item__data" id="first-vaccine"></span>
                 </div>
-                <div class="vaccination-data-item">
-                    <span class="vaccination-data-item__title">מנה 2</span>
-                    <span class="vaccination-data-item__data" id="second-vaccine"></span>
+                <div class="overview-data-item">
+                    <span class="overview-data-item__title">מנה 2</span>
+                    <span class="overview-data-item__data" id="second-vaccine"></span>
                 </div>
-                <div class="vaccination-data-item">
-                    <span class="vaccination-data-item__title">מנה 3</span>
-                    <span class="vaccination-data-item__data" id="third-vaccine"></span>
+                <div class="overview-data-item">
+                    <span class="overview-data-item__title">מנה 3</span>
+                    <span class="overview-data-item__data" id="third-vaccine"></span>
                 </div>
             </div>
         </div>
     </div>
     <div class="line-break second"></div>
     <div class="inline-flex-wrapper third">
-        <div class="card small">
+        <div class="card small" id="overview__dead">
             <div class="card-header">
                 <div class="card-title">נפטרים מצטבר</div>
                 <div class="card-description">
@@ -94,10 +142,10 @@
                 </div>
             </div>
             <div class="card-content">
-
+                <div class="overview-data-item__data"></div>
             </div>
         </div>
-        <div class="card small">
+        <div class="card small" id="overview__confirmed-precentage">
             <div class="card-header">
                 <div class="card-title">אחוז נבדקים חיוביים אתמול</div>
                 <div class="card-description">
@@ -114,7 +162,17 @@
                 </div>
             </div>
             <div class="card-content">
-
+                <div class="overview-data-item">
+                    <div class="overview-data-item__data" id="overview__confirmed-precentage-precent"></div>
+                </div>
+                <div class="overview-data-item">
+                    <div class="overview-data-item__data small" id="overview__confirmed-precentage-virus-tests"></div>
+                    <div class="overview-data-item__title">נבדקים לגילוי הנגיף אתמול</div>
+                </div>
+                <div class="overview-data-item">
+                    <div class="overview-data-item__data small" id="overview__confirmed-precentage-overall-tests"></div>
+                    <div class="overview-data-item__title">כלל הבדיקות אתמול</div>
+                </div>
             </div>
         </div>
     </div>
