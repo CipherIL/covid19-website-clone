@@ -1,6 +1,12 @@
 //Set background color of the line the scroll thumb runs in
 ::-webkit-scrollbar-track{
-    background-color: transparent!important;
+    background-color: #151a30!important;
+}
+
+.page-container{
+    ::-webkit-scrollbar-track{
+        background-color: transparent !important;
+    }
 }
 
 //Set design for the scroll thumb

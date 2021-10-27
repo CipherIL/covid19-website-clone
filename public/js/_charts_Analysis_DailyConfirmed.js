@@ -13,6 +13,7 @@ const dailyConfirmedFormData = {
 
 //Chart Creation Functions
 const dailyConfirmedByVaccinationChart = (xAxis,yAxis,series)=>{
+    
     Highcharts.chart('daily-confirmed-by-vaccination', {
         chart: {
             type: 'line',

@@ -5,7 +5,7 @@ const path = require('path');
 
 const dailyConfirmedPath = path.join(__dirname + "/../data/dailyConfirmed.json")
 const severlyIllPath = path.join(__dirname + "/../data/severlyIll.json")
-
+const activelyIllPath = path.join(__dirname + "/../data/activelyIll.json")
 
 router.get('/data/analysis/daily-confirmed/:limit',(req,res)=>{
     let limit = req.params.limit;
@@ -49,6 +49,11 @@ router.get('/data/analysis/severly-ill/:limit',(req,res)=>{
         status: 400,
         message: "Not valid limit"
     })   
+})
+
+router.get('/data/analysis/actively-ill',(req,res)=>{
+    const activelyIllData = JSON.parse(fs.readFileSync(activelyIllPath));
+    return res.status(200).send(activelyIllData);   
 })
 
 module.exports = router;

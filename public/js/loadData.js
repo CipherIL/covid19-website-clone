@@ -1,3 +1,4 @@
+const loadingDiv = document.getElementById('loading');
 document.addEventListener('DOMContentLoaded', async function () {
     //load overview
     await loadOverviewData();
@@ -7,4 +8,5 @@ document.addEventListener('DOMContentLoaded', async function () {
     await createSeverlyIllByVaccinationChart();
     await createActivelyIllByVaccinationChart();
     await loadTableData();
+    loadingDiv.style.display='none'
 });

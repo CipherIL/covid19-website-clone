@@ -25,6 +25,10 @@
     --chart-line-color-2: #237d7d;
     //data-card
     --data-card-text-color: #222b45;
+    //trafficlight table
+    --table-header-dark-background: #daeaee;
+    --table-header-background: #e6f1f3;
+    --table-cell-dark-background: rgba(239,245,249,0.5);
 }
 
 [data-theme="dark"]{
@@ -54,5 +58,9 @@
     --chart-line-color-2: #90ed7d;
     //data-card
     --data-card-text-color: #fff;
+    //trafficlight table
+    --table-header-dark-background: #354047;
+    --table-header-background: #2a3b47;
+    --table-cell-dark-background: rgba(41,59,72,0.5);
 }
 

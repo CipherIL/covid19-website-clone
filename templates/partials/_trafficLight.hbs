@@ -2,7 +2,8 @@
 <div class="section__content">
     <div class="inline-flex-wrapper">
         <div class="card large">
-            <div class="card-header">
+            <div class="card-header-legend-container">
+                <div class="card-header">
                 <div class="card-header__text-area">
                     <div class="card-title">
                         <span class="card-title__text">תכנית הרמזור</span>
@@ -72,38 +73,60 @@
                     </div>
                 </div>
             </div>
+            </div>
             <div class="card-content">
                 <table id="traffic-light-table">
                     <thead class="table-fixed-head">
                         <tr class="table-head-row">
                             <th>
-                                <span class="table-head-row__text">יישוב</span>
+                                <button id="table-sort-city">
+                                    <span class="table-head-row__text">יישוב</span>
+                                    <div class="sort-direction-icon"><img src="/public/media/icons/sort-direction.png"></div>
+                                </button>
                             </th>
                             <th>
-                                <span class="table-head-row__text">צבע תקנות חינוך</span>
+                                <button id="table-sort-color">
+                                    <span class="table-head-row__text">צבע תקנות חינוך</span>
+                                    <div class="sort-direction-icon"><img src="/public/media/icons/sort-direction.png"></div>   
+                                </button>
                             </th>
                             <th>
-                                <span class="table-head-row__text">ציון וצבע יומי</span>
+                                <button id="table-sort-grade">
+                                    <span class="table-head-row__text">ציון וצבע יומי</span>
+                                    <div class="sort-direction-icon show"><img src="/public/media/icons/sort-direction.png"></div>
+                                </button>
                             </th>
                             <th class="dark">
-                                <span class="table-head-row__text">
-                                    חולים חדשים לכל 10,000 נפש <b>*</b>
-                                </span>
+                                <button id="table-sort-newConfirmedPer100K">
+                                    <span class="table-head-row__text">
+                                        חולים חדשים לכל 10,000 נפש <b>*</b>
+                                    </span>
+                                    <div class="sort-direction-icon"><img src="/public/media/icons/sort-direction.png"></div>
+                                </button>
                             </th>
                             <th class="dark">
-                                <span class="table-head-row__text">
-                                    % הבדיקות החיוביות <b>*</b>
-                                </span>
+                                <button id="table-sort-positiveTestPrecentage">
+                                    <span class="table-head-row__text">
+                                        % הבדיקות החיוביות <b>*</b>
+                                    </span>
+                                    <div class="sort-direction-icon"><img src="/public/media/icons/sort-direction.png"></div>
+                                </button>
                             </th>
                             <th class="dark">
-                                <span class="table-head-row__text">
-                                    שיעור שינוי מאומתים <b>*</b>
-                                </span>
+                                <button id="table-sort-confirmedRateOfGrowth">
+                                    <span class="table-head-row__text">
+                                        שיעור שינוי מאומתים <b>*</b>
+                                    </span>
+                                    <div class="sort-direction-icon"><img src="/public/media/icons/sort-direction.png"></div>
+                                </button>
                             </th>
                             <th>
-                                <span class="table-head-row__text">
-                                    חולים פעילים
-                                </span>
+                                <button id="table-sort-activeIll">
+                                    <span class="table-head-row__text">
+                                        חולים פעילים
+                                    </span>
+                                    <div class="sort-direction-icon"><img src="/public/media/icons/sort-direction.png"></div>
+                                </button>
                             </th>
                         </tr>
                     </thead>

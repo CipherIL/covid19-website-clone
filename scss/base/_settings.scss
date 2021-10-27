@@ -8,8 +8,11 @@
 html{
     direction: rtl;
 }
+
 body{
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     min-width: 350px;
+    
+    background-color: var(--background-color);
 }
