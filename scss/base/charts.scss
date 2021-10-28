@@ -2,11 +2,21 @@
 @import 'https://code.highcharts.com/css/highcharts.css';
 
 //General settings
+.chart{
+    width: 100%;
+    height: 265px;
+    max-height: 265px;
+    padding: 10px
+}
 .highcharts-background{
     fill: var(--card-background-color);
 }
 .highcharts-title{
     fill: var(--chart-text-color);
+}
+
+#analysis .card{
+    padding-bottom: 0;
 }
 
 //Axis
@@ -76,4 +86,24 @@
     stroke-width: 1.5px;
     stroke: var(--chart-text-color);
     transform: translateY(2px);
+}
+
+
+// Actively Ill Chart Specific
+#actively-ill-by-vaccination{
+    .highcharts-grid-line{
+        stroke-width: 1px;
+    }
+    .actively-ill-chart-crosshair{
+        stroke-opacity: 0.1;
+        stroke: var(--chart-text-color);
+        stroke-width: 10%;
+        transform: translateY(2px);
+    }
+    .highcharts-point{
+        stroke-width: 0;
+    }
+    .highcharts-legend-item > rect {
+        transform: scale(0.8) translate(2px, 4px);
+    }
 }

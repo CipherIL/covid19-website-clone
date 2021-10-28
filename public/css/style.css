@@ -231,6 +231,7 @@ body {
   width: 100%;
   box-shadow: rgba(26, 31, 51, 0.6) 0 8px 20px 0;
   border-bottom: 1px solid rgba(26, 31, 51, 0.38);
+  overscroll-behavior: contain;
 }
 @media (max-width: 690px) {
   .navbar-container {
@@ -247,12 +248,23 @@ body {
   background-color: var(--main-background-color);
 }
 
+.chart {
+  width: 100%;
+  height: 265px;
+  max-height: 265px;
+  padding: 10px;
+}
+
 .highcharts-background {
   fill: var(--card-background-color);
 }
 
 .highcharts-title {
   fill: var(--chart-text-color);
+}
+
+#analysis .card {
+  padding-bottom: 0;
 }
 
 .highcharts-axis-title {
@@ -325,6 +337,146 @@ body {
   stroke-width: 1.5px;
   stroke: var(--chart-text-color);
   transform: translateY(2px);
+}
+
+#actively-ill-by-vaccination .highcharts-grid-line {
+  stroke-width: 1px;
+}
+#actively-ill-by-vaccination .actively-ill-chart-crosshair {
+  stroke-opacity: 0.1;
+  stroke: var(--chart-text-color);
+  stroke-width: 10%;
+  transform: translateY(2px);
+}
+#actively-ill-by-vaccination .highcharts-point {
+  stroke-width: 0;
+}
+#actively-ill-by-vaccination .highcharts-legend-item > rect {
+  transform: scale(0.8) translate(2px, 4px);
+}
+
+#hamburger-menu .hamburger-menu__background {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  z-index: 900;
+  background: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  transition: all 100ms linear;
+}
+#hamburger-menu .hamburger-menu__background.show {
+  opacity: 1;
+}
+#hamburger-menu .hamburger-menu__background .hamburger-menu__menu {
+  height: 100%;
+  width: 278px;
+  background: #fff;
+  transform: translateX(278px);
+  transition: all 100ms linear;
+  overflow: auto;
+}
+#hamburger-menu .hamburger-menu__background .hamburger-menu__menu.show {
+  transform: translateX(0px);
+}
+#hamburger-menu .hamburger-menu__background .menu-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#hamburger-menu .hamburger-menu__background .menu-section .menu-section__button {
+  cursor: pointer;
+  border: none;
+  height: 60px;
+  background-color: rgba(242, 242, 242, 0.55);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 20px;
+}
+#hamburger-menu .hamburger-menu__background .menu-section .menu-section__button .menu-section__button__text {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--text-font-family);
+}
+#hamburger-menu .hamburger-menu__background .menu-section .menu-section__button .menu-section__button__arrow img {
+  width: 12px;
+  height: 12px;
+  margin-right: 20px;
+  margin-top: 3px;
+  transform: rotate(270deg);
+  transition: all 100ms linear;
+}
+#hamburger-menu .hamburger-menu__background .menu-section .menu-section__button .menu-section__button__arrow img.show {
+  transform: rotate(180deg);
+}
+#hamburger-menu .hamburger-menu__background .menu-section .menu-section__container {
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+  overflow: hidden;
+  max-height: 0px;
+  transition: max-height 100ms linear;
+}
+#hamburger-menu .hamburger-menu__background .menu-section .menu-section__container .menu-section__link {
+  text-decoration: none;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: black;
+}
+#hamburger-menu .hamburger-menu__background .menu-section .menu-section__container .menu-section__link.fade {
+  opacity: 0.3;
+  pointer-events: none;
+}
+#hamburger-menu .hamburger-menu__background .menu-section .menu-section__container .menu-section__link.bold {
+  font-weight: 700;
+}
+#hamburger-menu .hamburger-menu__background .menu-section .menu-section__container.show {
+  max-height: 300px;
+}
+#hamburger-menu .hamburger-menu__background .menu-section__innerButton {
+  display: flex;
+  cursor: pointer;
+  height: 50px;
+  align-items: center;
+}
+#hamburger-menu .hamburger-menu__background .menu-section__innerButton .menu-section__button__arrow img {
+  width: 12px;
+  height: 12px;
+  margin-right: 20px;
+  transform: rotate(270deg);
+  transition: all 100ms linear;
+}
+#hamburger-menu .hamburger-menu__background .menu-section__innerButton .menu-section__button__arrow img.show {
+  transform: rotate(180deg);
+}
+#hamburger-menu .hamburger-menu__background .menu-section__innerSection {
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 100ms linear;
+}
+#hamburger-menu .hamburger-menu__background .menu-section__innerSection.show {
+  max-height: 400px;
+}
+#hamburger-menu .hamburger-menu__background .menu-section__innerSection .innerSection-link {
+  text-decoration: none;
+  height: 50px;
+  font-size: 14px;
+  color: black;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(0);
+  transition: all 500ms ease-out;
+}
+#hamburger-menu .hamburger-menu__background .menu-section__innerSection .innerSection-link.show {
+  transform: translateX(-20px);
+  opacity: 1;
 }
 
 .navbar-info {
@@ -505,11 +657,21 @@ body {
 .card.large {
   padding: 16px 10px;
   height: 350px;
+  max-height: 350px;
+  min-height: 350px;
 }
 @media (max-width: 770px) {
   .card.large {
     width: 100%;
   }
+}
+.card .placeholder-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  height: 100%;
 }
 .card .chart svg {
   width: 100%;
@@ -932,6 +1094,7 @@ body {
   margin-left: 0;
   column-gap: 20px;
   justify-content: center;
+  width: 100%;
 }
 #analysis .section__content .inline-flex-wrapper .card {
   flex-grow: 1;
@@ -1065,6 +1228,10 @@ body {
   justify-content: flex-start;
   padding: 0;
   min-width: 350px;
+  height: 350px;
+}
+#traffic-light .inline-flex-wrapper .card:first-child {
+  flex-grow: 2;
 }
 #traffic-light .inline-flex-wrapper .card-header-legend-container {
   display: flex;
@@ -1357,6 +1524,18 @@ body {
     height: 171px;
   }
 }
+@media (max-width: 1150px) {
+  #traffic-light .inline-flex-wrapper {
+    flex-direction: column;
+  }
+  #traffic-light .inline-flex-wrapper .card {
+    width: 100%;
+    height: 350px;
+  }
+  #traffic-light .inline-flex-wrapper .card .placeholder-text {
+    height: 350px;
+  }
+}
 
 .red {
   background-color: #fa9e8f;
@@ -1372,4 +1551,89 @@ body {
 
 .green {
   background-color: #b8de92;
+}
+
+#vaccines .section__content {
+  display: flex;
+  flex-direction: column;
+}
+#vaccines .section__content .inline-flex-wrapper .card {
+  flex-grow: 1;
+}
+@media (max-width: 980px) {
+  #vaccines .section__content .inline-flex-wrapper {
+    flex-direction: column;
+  }
+  #vaccines .section__content .inline-flex-wrapper .card {
+    width: 100%;
+  }
+}
+
+#civilians-status .section__content {
+  display: flex;
+  flex-direction: row;
+}
+#civilians-status .section__content .inline-flex-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+#civilians-status .section__content .inline-flex-wrapper .card {
+  width: 100%;
+}
+@media (max-width: 980px) {
+  #civilians-status .section__content {
+    flex-direction: column;
+  }
+  #civilians-status .section__content .inline-flex-wrapper {
+    flex-direction: column;
+  }
+}
+
+#sick-from-overseas .section__content .inline-flex-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+#sick-from-overseas .section__content .inline-flex-wrapper .card {
+  flex-grow: 1;
+}
+@media (max-width: 980px) {
+  #sick-from-overseas .section__content .inline-flex-wrapper {
+    flex-direction: column;
+  }
+  #sick-from-overseas .section__content .inline-flex-wrapper .card {
+    width: 100%;
+  }
+}
+
+#healed-and-losses .section__content .inline-flex-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+#healed-and-losses .section__content .inline-flex-wrapper .card {
+  flex-grow: 1;
+}
+@media (max-width: 980px) {
+  #healed-and-losses .section__content .inline-flex-wrapper {
+    flex-direction: column;
+  }
+  #healed-and-losses .section__content .inline-flex-wrapper .card {
+    width: 100%;
+  }
+}
+
+#health-facilities .section__content .inline-flex-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+#health-facilities .section__content .inline-flex-wrapper .card {
+  flex-grow: 1;
+}
+@media (max-width: 980px) {
+  #health-facilities .section__content .inline-flex-wrapper {
+    flex-direction: column;
+  }
+  #health-facilities .section__content .inline-flex-wrapper .card {
+    width: 100%;
+  }
 }

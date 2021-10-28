@@ -179,21 +179,72 @@
             </div>
         </div>
         <div class="card large">
-            <div class="chart-legend">
+            <div class="card-header">
+                <div class="card-title">חולים פעילים - גיל והתחסנות</div>
+                <div class="card-description">
+                    <div class="card-description__icon"><img src="/public/media/icons/info.svg"></div>
+                    <div class="card-description__text">
+                        פילוח של מספר החולים הפעילים וחולים קשה במחלת נגיף COVID-19, לפי קבוצות כיל באוכלוסייה ולפי מצב התחסנות בכל קבוצת גיל.
+                        <br><br>
+                        לאור גידול באוכלוסייה בקבוצות הגיל בישראל, חל עדכון בתמונת נתונים המוצגת. נתוני אוכלוסיה כעת מתייחסים לאפריל 2021.
+                        <br><br>
+                        ל-100K תושבים - שכיחות החולים לכל 100,000 תושבים , עבור כל מצב התחסנות.
+                        <br><br>
+                        חולים פעילים - הם כל מי שנבדקו ונמצאו חיוביים לנגיף COVIE-19, ללא קשר להופעת תסמינים, שלא קיבלו עדיין תוצאה שלילית לנגיף בבדיקות נוספות ושלא נפטרו.
+                        <br><br>
+                        מחוסנים: <br>
+                        - מי שקיבלו 2 או 3 מנות חיסון ועבר שבוע מאז קבלת המנה האחרונה (שבועיים בחיסוני מודרנה) אך עוד לא עברה חצי שנה מאז <br>
+                        - מי שהחלימו וקיבלו לאחר מכן לפחות מנת חיסון אחת ועבר שבוע מאז קבלת המנה (שבועיים בחיסוני מודרנה) <br>
+                        - מי שקיבלו לפחות מנת חיסון אחת ולאחר מכן נדבקו והחלימו
+                        <br><br>
+                        מחוסנים לא בתוקף - מי שקיבלו 2 מנות חיסון ועברו יותר מחצי שנה ושבוע מאז קבלת המנה האחרונה (חצי שנה ושבועיים בחיסוני מודרנה) ולא קיבלו מנה נוספת.
+                        <br><br>
+                        לא מחוסנים - מי שלא קיבלו מנת חיסון ראשונה.
+                    </div>
+                </div>
+                <div class="card-menu">
                     
                 </div>
+                <div class="chart-menu" id="actively-ill-chart-menu">
+                    <div class="chart-menu__button">
+                        <span class="chart-menu__button__text">חולים קשה - פעילים, ל-100 אלף תושבים, מעל גיל 60, חודש אחרון</span>
+                        <span class="chart-menu__button__arrow"><img src="/public/media/svgs/up-arrow.svg"></span>
+                    </div>
+                    <div class="chart-menu__form">
+                        <form>
+                            <div class="form-field">
+                                <label>משתנה</label>
+                                <div class="radio-option">
+                                    <input type="radio" name="actively-ill-illType" value="new" id="actively-ill-illType-new"> חולים קשה - חדשים
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" name="actively-ill-illType" value="active" id="actively-ill-illType-active" checked> חולים קשה - פעילים
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <label>סוג ניתוח</label>
+                                <div class="radio-option">
+                                    <input type="radio" name="actively-ill-per100K" value="false" id="actively-ill-per100K-false"> מספר מוחלט
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" name="actively-ill-per100K" value="true" id="actively-ill-per100K-true"checked> ל-100 אלף תושבים
+                                </div>
+                            </div>
+                            
+                        </form>
+                        <div class="chart-menu__form-buttons">
+                            <button class="form-button" id="actively-ill-submit">אישור</button>
+                            <button class="form-button" id="actively-ill-cancel">ביטול</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div id="actively-ill-by-vaccination" class="chart"></div>
         </div>
     </div>
-    {{!-- <div class="inline-flex-wrapper">
-        <div class="card large">
-            <div class="chart"></div>
-        </div>
-        <div class="card large">
-            <div class="chart"></div>
-        </div>
-        <div class="card large">
-            <div class="chart"></div>
-        </div>
-    </div> --}}
+    <div class="inline-flex-wrapper">
+        {{>_placeholderCardLarge}}
+        {{>_placeholderCardLarge}}
+        {{>_placeholderCardLarge}}
+    </div>
 </div>

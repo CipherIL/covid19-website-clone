@@ -18,8 +18,7 @@ const dailyConfirmedByVaccinationChart = (xAxis,yAxis,series)=>{
         chart: {
             type: 'line',
             styledMode: true,
-            marginBottom: 70,
-            spacing: [90,25,90,25],
+            spacing: [90,10,0,20],
             alignTicks: true,
             
         },
@@ -145,10 +144,10 @@ const dailyConfirmedByVaccinationChart = (xAxis,yAxis,series)=>{
                     textAlign:'right'
                 },
             },
-            tickInterval: yAxis[0],
+            // tickInterval: yAxis[0],
             tickAmount: 6,
             allowDecimals: false,
-            endOnTick: yAxis[-1] 
+            // endOnTick: yAxis[-1] 
         },
         series: [{
             type: 'line',
@@ -190,7 +189,7 @@ const dailyConfirmedByVaccinationChart = (xAxis,yAxis,series)=>{
         },
         
     })
-    .setSize(undefined,267);
+    // .setSize(undefined,267);
 }
 const createDailyConfirmedChart = async (data) =>{
     const dailyConfirmedData = await axios.get(`/data/analysis/daily-confirmed/${""+data.limit}`);

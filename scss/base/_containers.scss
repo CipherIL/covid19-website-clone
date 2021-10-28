@@ -19,6 +19,7 @@
     @media (max-width: 690px) {
         width: 100%;
     }
+    overscroll-behavior: contain;
 }
 
 .main-container{

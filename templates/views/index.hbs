@@ -25,25 +25,25 @@
             <section id="vaccines" class="section">
                 <div class="section__title">חיסונים</div>
                 <div class="section__content">
-                    
+                    {{>_vaccinesSection}}
                 </div>
             </section>
             <section id="civilians-status" class="section">
                 <div class="section__title">חולים קשה, מאומתים ובדיקות</div>
                 <div class="section__content">
-                    
+                    {{>_civilianStatusSection}}
                 </div>
             </section>
             <section id="sick-from-overseas" class="section">
                 <div class="section__title">תחלואה מחו"ל</div>
                 <div class="section__content">
-                    
+                    {{>_sickFromOverseasSection}}
                 </div>
             </section>
             <section id="healed-and-losses" class="section">
                 <div class="section__title">מחלימים ונפטרים</div>
                 <div class="section__content">
-                    
+                    {{>_healedAndLosesSection}}
                 </div>
             </section>
             <section id="traffic-light" class="section">
@@ -52,7 +52,7 @@
             <section id="health-facilities" class="section">
                 <div class="section__title">מוסדות רפואיים</div>
                 <div class="section__content">
-                    
+                    {{>_healthFacilitiesSection}}
                 </div>
             </section>
         </div>
@@ -61,6 +61,9 @@
         <div id="loading" class="loading">
             Loading&#8230;      
         </div>
+    </div>
+    <div id="hamburger-menu" style="display: none;">
+        {{>_hamburgerMenu}}
     </div>
     {{>_scripts}}
 </body>

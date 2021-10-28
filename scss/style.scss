@@ -4,6 +4,7 @@
 @import './base/scrollbar';
 @import './base/containers';
 @import './base/charts';
+@import './base/hamburgerMenu';
 // Navbar
 @import './base/navbar/navbar-info';
 @import './base/navbar/navbar-hamburgerMenu';
@@ -14,4 +15,9 @@
 @import './base/sections/section-overview';
 @import './base/sections/section-dataWorld';
 @import './base/sections/section-analysis';
-@import './base/sections/section-traffic-light'
+@import './base/sections/section-traffic-light';
+@import './base/sections/section-vaccines';
+@import './base/sections/section-civilianStatus';
+@import './base/sections/section-sickFromOverseas';
+@import './base/sections/section-healedAndLoses';
+@import './base/sections/section-healthFacilities';

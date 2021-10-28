@@ -19,8 +19,7 @@ const severlyIllByVaccinationChart = (xAxis,yAxis,series)=>{
         chart: {
             type: 'line',
             styledMode: true,
-            marginBottom: 70,
-            spacing: [90,15,90,15]
+            spacing: [90,10,0,20]
         },
         plotOptions:{
             series:{
@@ -140,10 +139,10 @@ const severlyIllByVaccinationChart = (xAxis,yAxis,series)=>{
                     textAlign:'right'
                 },
             },
-            tickInterval: yAxis[0],
+            // tickInterval: yAxis[0],
             tickAmount: 6,
             allowDecimals: false,
-            endOnTick: yAxis[-1] 
+            // endOnTick: yAxis[-1] 
         },
         series: [{
             name: 'לא מחוסנים',
@@ -183,7 +182,8 @@ const severlyIllByVaccinationChart = (xAxis,yAxis,series)=>{
             },
         },
         
-    }).setSize(undefined,267);
+    })
+    // .setSize(undefined,267);
 }
 const createSeverlyIllByVaccinationChart = async ()=>{
     const JsonData = await axios.get(`/data/analysis/severly-ill/${""+severlyIllData.limit}`);

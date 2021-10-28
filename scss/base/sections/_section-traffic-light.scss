@@ -4,7 +4,12 @@
         justify-content: flex-start;
         padding: 0;
         min-width: 350px;
+        height: 350px;
+        &:first-child{
+            flex-grow: 2;
+        }
     }
+    
     .card-header-legend-container{
         display: flex;
         flex-direction: column;
@@ -279,6 +284,17 @@
         }
         @media (max-width: 590px) {
             height: 171px;
+        }
+    }
+    
+    @media (max-width: 1150px) {
+        flex-direction: column;
+        .card{
+            width:100%;
+            height: 350px;
+            .placeholder-text{
+                height: 350px;
+            }
         }
     }
 }

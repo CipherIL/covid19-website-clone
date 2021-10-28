@@ -114,7 +114,7 @@ const sortTable = (category,direction)=>{
 //table search option
 const resetTimer = ()=>{
     clearTimeout(timer);
-    timer = setTimeout(searchInTable,500);
+    timer = setTimeout(searchInTable,200);
 }
 const searchInTable = ()=>{
     const inputText = $searchInput.value;

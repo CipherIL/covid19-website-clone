@@ -1,6 +1,10 @@
 const $navbarLinkContainers = [...document.querySelectorAll('.navbar-links__link-container')];
+const $navbarScrollableContainer = document.querySelector('.navbar-links');
 const $page = document.querySelector('.page-container');
 const $pageSections = [...document.querySelectorAll('.section')];
+const $navbarContainer = document.querySelector('.navbar-container');
+
+
 $navbarLinkContainers.forEach((linkContainer)=>{
     linkContainer.addEventListener('click',(e)=>{
         e.preventDefault();
@@ -15,8 +19,15 @@ $navbarLinkContainers.forEach((linkContainer)=>{
     })
 })
 
+$navbarContainer.addEventListener('wheel',(e)=>{
+    e.stopPropagation();
+    e.stopImmediatePropagation
+    e.preventDefault();
+    $navbarScrollableContainer.scrollLeft -= e.deltaY/5;
+})
+
 $page.addEventListener('scroll',()=>{
-    const halfwayHeight = window.innerHeight/2;
+    const halfwayHeight = window.innerHeight/5;
     const sectionsInViewAbobeMiddle = [];
     $pageSections.forEach((section,i)=>{
         const sectionRect = section.getBoundingClientRect();

@@ -1,0 +1,17 @@
+#civilians-status .section__content{
+    display:flex;
+    flex-direction: row;
+    .inline-flex-wrapper{
+        display: flex;
+        flex-direction: column;
+        .card{
+            width: 100%;
+        }
+    }
+    @media (max-width: 980px) {
+        flex-direction: column;
+        .inline-flex-wrapper{
+            flex-direction: column;
+        }
+    }
+}
